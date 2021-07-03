@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+.p5Canvas {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.container {
+    position: absolute;
+    transform: translate(50%, -50%);
+    right: 50%;
+    top: 50%;
+    display: grid;
+    grid-template-columns: repeat(6, 70px);
+    grid-auto-rows: 70px;
+    gap: 1rem;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 15%;
+    color: white;
+    font-family: fantasy, sans-serif;
+}
