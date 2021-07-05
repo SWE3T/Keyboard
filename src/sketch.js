@@ -17,28 +17,29 @@ function windowResized() {
 
 var square;
 
+
 function keyPressed() {
     if (keyIsDown(65)) {
         square = document.getElementById("a");
-        square.style.animation = "rise 1s 1";
-    } 
-    if (keyIsDown(83)) {
-        square = document.getElementById("s");
-        square.style.animation = "rise 1s 1";
+        square.style.animation = "rise 1s infinite";
     }
-    if (keyIsDown(68)) {
+    else if (keyIsDown(83)) {
+        square = document.getElementById("s");
+        square.style.animation = "rise 1s infinite";
+    }
+    else if (keyIsDown(68)) {
         square = document.getElementById("d");
         square.style.animation = "rise 1s infinite";
     }
-    if (keyIsDown(74)) {
+    else if (keyIsDown(74)) {
         square = document.getElementById("j");
         square.style.animation = "rise 1s infinite";
     }
-    if (keyIsDown(75)) {
+    else if (keyIsDown(75)) {
         square = document.getElementById("k");
         square.style.animation = "rise 1s infinite";
     }
-    if (keyIsDown(76)) {
+    else if (keyIsDown(76)) {
         square = document.getElementById("l");
         square.style.animation = "rise 1s infinite";
     }
@@ -47,8 +48,10 @@ function keyPressed() {
     }
 }
 
+
 function keyReleased() {
-    square.style.animation = "still 0.1s 1";
+    // square.style.animation = "";
+    square.style.webkitAnimationPlayState = "paused";
     return false; // prevent any default behavior
 }
 
