@@ -27,7 +27,10 @@ body {
     border-radius: 15%;
     color: white;
     font-family: fantasy, sans-serif;
+    animation: rise 1s 1;
+    animation-play-state: running;
 }
+
 
 @keyframes rise {
     0%, 100% {
@@ -49,16 +52,5 @@ body {
     90% {
         -webkit-transform: translateY(-6.4px);
         transform: translateY(-6.4px);
-    }
-}
-
-@keyframes still {
-    from {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    to {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
     }
 }
