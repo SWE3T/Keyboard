@@ -27,6 +27,7 @@ body {
     border-radius: 15%;
     color: white;
     font-family: fantasy, sans-serif;
+    user-select: none;
     animation: rise 1s 1;
     animation-play-state: running;
 }
