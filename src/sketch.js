@@ -1,18 +1,15 @@
 function setup() {
-    context = new AudioContext();
     createCanvas(windowWidth, windowHeight);
     osc = new p5.TriOsc();
     env = new p5.Envelope();
+    getAudioContext().resume();
     osc.start();
-    osc.amp(0);
+    osc.amp(0.5);
 }
 
 function draw() {
     if (mouseIsPressed) {
         fill(0);
-        context.resume().then(() => {
-            console.log('Playback resumed successfully');
-        });
     } else {
         fill(255);
     }
@@ -71,6 +68,9 @@ function draw() {
     }
 }
 
+function mousePressed() {
+
+}
 // function keyPressed() {
 //     switch (keyCode) {
 //         case 65:
@@ -84,6 +84,7 @@ function draw() {
 //             playNote(60);
 //             break;
 //     }
+
 // }
 
 
@@ -98,4 +99,3 @@ function stopNote() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
-
