@@ -1,10 +1,11 @@
+var a,s,d,j,k,l = 0;
 function setup() {
     createCanvas(windowWidth, windowHeight);
     osc = new p5.TriOsc();
     env = new p5.Envelope();
-    getAudioContext().resume();
     osc.start();
     osc.amp(0.5);
+
 }
 
 function draw() {
@@ -25,15 +26,17 @@ function draw() {
 
     if (keyIsDown(65)) {
         a.style.animation = "rise 1s infinite";
-        playNote(90);
+        a = 30;
+        playNote(90, a);
     }
     else {
         a.style.webkitAnimationPlayState = "paused";
-        stopNote();
+        if (a>0)a--;
     }
 
     if (keyIsDown(83)) {
         s.style.animation = "rise 1s infinite";
+        playNote(300, 300);
     }
     else {
         s.style.webkitAnimationPlayState = "paused";
@@ -68,32 +71,15 @@ function draw() {
     }
 }
 
-function mousePressed() {
 
-}
-// function keyPressed() {
-//     switch (keyCode) {
-//         case 65:
-//             playNote(30);
-//             console.log("a");
-//             break;
-//         case 83:
-//             playNote(45);
-//             break;
-//         case 68:
-//             playNote(60);
-//             break;
-//     }
+function playNote(note, duration) {
+  osc.freq(note);
 
-// }
-
-
-function playNote(note) {
-    osc.freq(note);
-}
-
-function stopNote() {
-    osc.fade(0, 0.5);
+  if (duration) {
+    setTimeout(function() {
+      osc.fade(0,0.2);
+    }, duration-20);
+  }
 }
 
 function windowResized() {
