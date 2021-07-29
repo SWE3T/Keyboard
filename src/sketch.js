@@ -1,11 +1,28 @@
-var a,s,d,j,k,l = 0;
 function setup() {
+    getAudioContext().suspend();
+    userStartAudio();
     createCanvas(windowWidth, windowHeight);
-    osc = new p5.TriOsc();
-    env = new p5.Envelope();
-    osc.start();
-    osc.amp(0.5);
+    oscA = new p5.Oscillator('sine');
+    oscA.freq(200);
+    oscS = new p5.Oscillator('sine');
+    oscS.freq(300);
+    oscD = new p5.Oscillator('sine');
+    oscD.freq(400);
+    oscJ = new p5.Oscillator('sine');
+    oscJ.freq(500);
+    oscK = new p5.Oscillator('sine');
+    oscK.freq(600);
+    oscL = new p5.Oscillator('sine');
+    oscL.freq(700);
 
+    env = new p5.Envelope();
+
+    a = document.getElementById("a");
+    s = document.getElementById("s");
+    d = document.getElementById("d");
+    j = document.getElementById("j");
+    k = document.getElementById("k");
+    l = document.getElementById("l");
 }
 
 function draw() {
@@ -16,70 +33,73 @@ function draw() {
     }
 
     ellipse(mouseX, mouseY, 80, 80);
+}
 
-    a = document.getElementById("a");
-    s = document.getElementById("s");
-    d = document.getElementById("d");
-    j = document.getElementById("j");
-    k = document.getElementById("k");
-    l = document.getElementById("l");
-
-    if (keyIsDown(65)) {
+function keyPressed() {
+    if (keyCode == 65) {
+        oscA.amp(1);
         a.style.animation = "rise 1s infinite";
-        a = 30;
-        playNote(90, a);
+        playOscillator(oscA);
     }
-    else {
-        a.style.webkitAnimationPlayState = "paused";
-        if (a>0)a--;
-    }
-
-    if (keyIsDown(83)) {
+    if (keyCode == 83) {
+        oscS.amp(1);
         s.style.animation = "rise 1s infinite";
-        playNote(300, 300);
+        playOscillator(oscS);
     }
-    else {
-        s.style.webkitAnimationPlayState = "paused";
-    }
-
-    if (keyIsDown(68)) {
+    if (keyCode == 68) {
+        oscD.amp(1);
         d.style.animation = "rise 1s infinite";
+        playOscillator(oscD);
     }
-    else {
-        d.style.webkitAnimationPlayState = "paused";
-    }
-
-    if (keyIsDown(74)) {
+    if (keyCode == 74) {
+        oscJ.amp(1);
         j.style.animation = "rise 1s infinite";
+        playOscillator(oscJ);
     }
-    else {
-        j.style.webkitAnimationPlayState = "paused";
-    }
-
-    if (keyIsDown(75)) {
+    if (keyCode == 75) {
+        oscK.amp(1);
         k.style.animation = "rise 1s infinite";
+        playOscillator(oscK);
     }
-    else {
-        k.style.webkitAnimationPlayState = "paused";
-    }
-
-    if (keyIsDown(76)) {
+    if (keyCode == 76) {
+        oscL.amp(1);
         l.style.animation = "rise 1s infinite";
+        playOscillator(oscL);
     }
-    else {
+    
+    return false;
+}
+
+function keyReleased() {
+    if (keyCode == 65) {
+        a.style.webkitAnimationPlayState = "paused";
+        oscA.amp(0, 0.1);
+    }
+    if (keyCode == 83) {
+        s.style.webkitAnimationPlayState = "paused";
+        oscS.amp(0, 0.1);
+    }
+    if (keyCode == 68) {
+        d.style.webkitAnimationPlayState = "paused";
+        oscD.amp(0, 0.1);
+    }
+    if (keyCode == 74) {
+        j.style.webkitAnimationPlayState = "paused";
+        oscJ.amp(0, 0.1);
+    }
+    if (keyCode == 75) {
+        k.style.webkitAnimationPlayState = "paused";
+        oscK.amp(0, 0.1);
+    }
+    if (keyCode == 76) {
         l.style.webkitAnimationPlayState = "paused";
+        oscL.amp(0, 0.1);
     }
 }
 
-
-function playNote(note, duration) {
-  osc.freq(note);
-
-  if (duration) {
-    setTimeout(function() {
-      osc.fade(0,0.2);
-    }, duration-20);
-  }
+function playOscillator(osc) {
+    osc.start();
+    playing = true;
 }
 
 function windowResized() {
