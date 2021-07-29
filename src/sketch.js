@@ -2,18 +2,18 @@ function setup() {
     getAudioContext().suspend();
     userStartAudio();
     createCanvas(windowWidth, windowHeight);
-    oscA = new p5.Oscillator('sine');
-    oscA.freq(200);
-    oscS = new p5.Oscillator('sine');
-    oscS.freq(300);
-    oscD = new p5.Oscillator('sine');
-    oscD.freq(400);
-    oscJ = new p5.Oscillator('sine');
-    oscJ.freq(500);
-    oscK = new p5.Oscillator('sine');
-    oscK.freq(600);
-    oscL = new p5.Oscillator('sine');
-    oscL.freq(700);
+    oscA = new p5.Oscillator('triangle');
+    oscA.freq(82);
+    oscS = new p5.Oscillator('triangle');
+    oscS.freq(110);
+    oscD = new p5.Oscillator('triangle');
+    oscD.freq(146);
+    oscJ = new p5.Oscillator('triangle');
+    oscJ.freq(196);
+    oscK = new p5.Oscillator('triangle');
+    oscK.freq(246);
+    oscL = new p5.Oscillator('triangle');
+    oscL.freq(329);
 
     env = new p5.Envelope();
 
@@ -73,27 +73,27 @@ function keyPressed() {
 function keyReleased() {
     if (keyCode == 65) {
         a.style.webkitAnimationPlayState = "paused";
-        oscA.amp(0, 0.1);
+        oscA.amp(0, 1.5);
     }
     if (keyCode == 83) {
         s.style.webkitAnimationPlayState = "paused";
-        oscS.amp(0, 0.1);
+        oscS.amp(0, 1.25);
     }
     if (keyCode == 68) {
         d.style.webkitAnimationPlayState = "paused";
-        oscD.amp(0, 0.1);
+        oscD.amp(0, 1);
     }
     if (keyCode == 74) {
         j.style.webkitAnimationPlayState = "paused";
-        oscJ.amp(0, 0.1);
+        oscJ.amp(0, 0.75);
     }
     if (keyCode == 75) {
         k.style.webkitAnimationPlayState = "paused";
-        oscK.amp(0, 0.1);
+        oscK.amp(0, 0.5);
     }
     if (keyCode == 76) {
         l.style.webkitAnimationPlayState = "paused";
-        oscL.amp(0, 0.1);
+        oscL.amp(0, 0.5);
     }
 }
 
