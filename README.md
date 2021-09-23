@@ -1,5 +1,7 @@
 <p align="center">
-  ![image](https://user-images.githubusercontent.com/49656211/134596312-6599b872-9aa9-433c-b85b-c16a55c9b8b4.png)
+  <p align="center">
+    <img width="460" src="https://user-images.githubusercontent.com/49656211/134596687-b24fd1ad-7c1d-4f74-8a15-a380c5e13225.png">
+  </p>
   <h3 align="center">Tecladinho :musical_keyboard: </h3>
 
   <p align="center">
